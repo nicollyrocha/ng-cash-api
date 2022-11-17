@@ -19,5 +19,9 @@
 	"exclude": ["node_modules", "dist"],
 	"ts-node": {
 		"files": true
-	}
+	},
+	"typeRoots": [
+		"./typings",
+		"./node_modules/@types/"
+	  ]
 }
