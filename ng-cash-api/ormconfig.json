@@ -1,0 +1,17 @@
+{
+    "type": "postgres",
+    "host": "ec2-52-73-155-171.compute-1.amazonaws.com",
+    "port": 5432,
+    "username": "gvqvdmbuywnlce",
+    "database": "d2p62pk2ajr9i2",
+    "synchronize": false,
+    "logging": false,
+    "entities": ["**/migration/**/*.{ts,js}"],
+    "migrations": ["src/migration/**/*.{ts,js}"],
+    "subscribers": ["**/subscribers/**/*.{ts,js}"],
+    "cli": {
+        "entitiesDir": "**/entity",
+        "migrationsDir": "**/migration",
+        "subscribersDir": "**/subscriber"
+    }
+}
