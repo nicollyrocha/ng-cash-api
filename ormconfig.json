@@ -6,7 +6,7 @@
     "database": "d2p62pk2ajr9i2",
     "synchronize": false,
     "logging": false,
-    "entities": ["**/migration/**/*.{ts,js}"],
+    "entities": ["**/entity/**/*.{ts,js}"],
     "migrations": ["src/migration/**/*.{ts,js}"],
     "subscribers": ["**/subscribers/**/*.{ts,js}"],
     "cli": {
