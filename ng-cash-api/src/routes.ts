@@ -3,7 +3,7 @@ import { AccountsController } from './controller/accountsController'
 
 const routes = Router()
 
-routes.get('/', (request: Request, response: Response)=>{
+routes.get('/api/home', (request: Request, response: Response)=>{
     return response.json({message: 'Hello World!'})
 })
 

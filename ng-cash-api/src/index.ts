@@ -5,9 +5,9 @@ import routes from "./routes"
 
 AppDataSource.initialize().then(()=>{
     const app = express()
-
+    const PORT = process.env.PORTA || process.env.PORTA_DB
     app.use(express.json())
     app.use(routes)
 
-    return app.listen(process.env.PORTA,(()=>console.log(`App listening on port ${process.env.PORTA}`)))
+    return app.listen(PORT,(()=>console.log(`App listening on port ${process.env.PORTA}`)))
 })
