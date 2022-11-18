@@ -1,6 +1,5 @@
 import express from "express"
 import {AppDataSource} from './data-source'
-import 'dotenv/config'
 import routes from "./routes"
 
 AppDataSource.initialize().then(()=>{
