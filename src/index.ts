@@ -1,4 +1,4 @@
-import express from "express"
+const express = require("express") 
 import {AppDataSource} from './data-source'
 import routes from "./routes"
 
