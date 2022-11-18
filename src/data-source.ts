@@ -9,5 +9,8 @@ export const AppDataSource = new DataSource({
     database: "d2p62pk2ajr9i2",
     password: '441a4a6da353e75c371635e672c976f94ca61793bac253d5dfd59d29df56693a',
     entities: [`${__dirname}/**/entity/*.{ts,js}`],
-    migrations: [`${__dirname}/**/migrations/*.{ts,js}`]
+    migrations: [`${__dirname}/**/migrations/*.{ts,js}`],
+    ssl: {
+      rejectUnauthorized: false
+    }
 })
