@@ -5,8 +5,8 @@
    "engines": {
       "node": "16.15.1"
    },
-   "typings": "src/index.ts",
    "type": "commonjs",
+   "module": "commonjs",
    "license": "MIT",
    "devDependencies": {
       "@types/express": "^4.17.14",
