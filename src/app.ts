@@ -38,7 +38,7 @@ AppDataSource.initialize()
         credentials: true,
       })
     );
-
+console.log('node_env', config.util.getEnv('NODE_ENV'))
     // ROUTES
     app.use('/api/auth', authRouter);
     app.use('/api/users', userRouter);
