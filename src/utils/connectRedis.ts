@@ -3,7 +3,7 @@ import { createClient } from 'redis';
 const redisUrl = 'redis://localhost:6379';
 
 const redisClient = createClient({
-  url: 'redis://host.docker.internal:6379',
+  url: 'redis://localhost:6379',
 });
 
 const connectRedis = async () => {
