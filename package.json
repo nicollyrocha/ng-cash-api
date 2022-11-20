@@ -4,7 +4,7 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-     "start": "ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
+     "start": "NODE_ENV=production&& ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
      "build": "npm install && tsc -p .",
      "typeorm": "typeorm-ts-node-commonjs",
      "db:push": "rm -rf build && yarn build && yarn typeorm migration:run -d src/utils/data-source.ts",
