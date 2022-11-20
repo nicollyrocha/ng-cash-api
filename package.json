@@ -9,7 +9,7 @@
       "build": "tsc -p .",
       "typeorm": "typeorm-ts-node-commonjs",
       "migration:generate": "typeorm-ts-node-commonjs -d ./src/utils/data-source.ts migration:generate ./src/migrations/default",
-		"migration:run": "typeorm-ts-node-commonjs -d src/utils/data-source.ts migration:run",
+      "migration:run": "typeorm-ts-node-commonjs -d src/utils/data-source.ts migration:run",
       "db:push": "typeorm-ts-node-commonjs -d src/utils/data-source.ts migration:run"
    },
    "repository": {
@@ -54,6 +54,7 @@
       "redis": "^4.5.0",
       "reflect-metadata": "^0.1.13",
       "rm": "^0.1.8",
+      "tsc": "^2.0.4",
       "typeorm": "^0.3.10",
       "typescript": "^4.9.3",
       "zod": "^3.19.1"
