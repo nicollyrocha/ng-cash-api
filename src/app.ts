@@ -63,7 +63,7 @@ console.log('node_env', config.util.getEnv('NODE_ENV'))
       (error: AppError, req: Request, res: Response, next: NextFunction) => {
         error.status = error.status || 'error';
         error.statusCode = error.statusCode || 500;
-
+console.log("error app.ts")
         res.status(error.statusCode).json({
           status: error.status,
           message: error.message,
