@@ -31,6 +31,7 @@ export const verifyJwt = <T>(
   
       return decoded;
     } catch (error) {
+      console.log("JWT ERROR")
       return null;
     }
   };

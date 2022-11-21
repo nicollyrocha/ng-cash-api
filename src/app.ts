@@ -76,5 +76,5 @@ console.log("error app.ts")
 
     console.log(`Server started on port: ${port}`);
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log("ERROR AQUI",error));
 
