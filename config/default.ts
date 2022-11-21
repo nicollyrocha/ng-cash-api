@@ -1,5 +1,5 @@
 export default {
-    origin: 'https://ng-cash-api.onrender.com',
+    origin: 'http://localhost:3000',
     accessTokenExpiresIn: 15,
     refreshTokenExpiresIn: 60,
     redisCacheExpiresIn: 60,

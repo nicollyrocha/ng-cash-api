@@ -15,6 +15,6 @@ const validateEnv = () => {
     JWT_REFRESH_TOKEN_PUBLIC_KEY: str(),
   });
 };
-
+console.log("VALIDATE ENV")
 export default validateEnv;
 
