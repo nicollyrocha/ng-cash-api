@@ -14,7 +14,6 @@ import redisClient from './utils/connectRedis';
 AppDataSource.initialize()
   .then(async () => {
     // VALIDATE ENV
-    validateEnv();
 
     const app = express();
 
