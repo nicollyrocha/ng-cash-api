@@ -7,7 +7,7 @@ const port = process.env.POSTGRES_PORT as number | undefined
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
-  port: port,
+  port: 6500,
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
