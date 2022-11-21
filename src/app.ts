@@ -95,7 +95,9 @@ console.log("global error handler")
       });
     } else {
       console.log("ELSE")
-      app.listen(port);
+      app.listen(8000, function () {
+        console.log('Example app listening on port 8000!');
+       });
       console.log(`Server started with pid: ${process.pid} on port: ${port}`);
     }
     // app.listen(port);
