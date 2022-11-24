@@ -1,20 +1,29 @@
 import config from 'config';
 import { NextFunction, Request, Response } from 'express';
 import { accessTokenCookieOptions } from '../controllers/auth.controller';
+import { Accounts } from '../entities/accounts';
 import { Users } from '../entities/users';
-import { CreateUserInput } from '../schemas/users.schema';
+import { CreateAccountInput, CreateUserInput } from '../schemas/users.schema';
 import AppError from '../utils/appError';
 import redisClient from '../utils/connectRedis';
 import { AppDataSource } from '../utils/data-source';
 import { signJwt, verifyJwt } from '../utils/jwt';
 
 const userRepository = AppDataSource.getRepository(Users);
+const accountRepository = AppDataSource.getRepository(Accounts);
 
 export const createUser = async (input: CreateUserInput) => {
   return (await AppDataSource.manager.save(
     AppDataSource.manager.create(Users)
   )) as Users;
 };
+
+export const createAccount = async (input: CreateAccountInput) => {
+  return (await AppDataSource.manager.save(
+    AppDataSource.manager.create(Accounts)
+  )) as Accounts;
+};
+
 
 export const findUserByUsername = async ({ username }: { username: string }) => {
   return await userRepository.findOneBy({ username });
@@ -29,6 +38,7 @@ export const findUser = async (query: Object) => {
 };
 
 export const signTokens = async (user: Users) => {
+
   redisClient.set(user.username, JSON.stringify(user), {
     EX: config.get<number>('redisCacheExpiresIn') * 60,
   });

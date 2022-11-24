@@ -3,20 +3,16 @@ import {
   loginUserHandler,
   logoutHandler,
   refreshAccessTokenHandler,
-  registerUserHandler,
 } from '../controllers/auth.controller';
 import { deserializeUser } from '../middleware/deserializeUser';
 import { requireUser } from '../middleware/requireUser';
-import { validate } from '../middleware/validate';
-import { createUserSchema, loginUserSchema } from '../schemas/users.schema';
+import { createAccountSchema, createUserSchema, loginUserSchema } from '../schemas/users.schema';
 
 const router = express.Router();
 
-// Register user
-router.post('/register', validate(createUserSchema), registerUserHandler);
 
 // Login user
-router.post('/login', validate(loginUserSchema), loginUserHandler);
+//router.post('/login', validateAuthPayload(), loginUserHandler);
 
 // Logout user
 router.get('/logout', deserializeUser, requireUser, logoutHandler);
