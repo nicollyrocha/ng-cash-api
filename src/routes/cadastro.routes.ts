@@ -4,7 +4,7 @@ import { registerAccountHandler, registerUserHandler } from '../controllers/cada
 const router = express.Router();
 
 
-// Register user
+
 router.post('/registeraccount', registerAccountHandler);
 router.post('/register', registerUserHandler)
 

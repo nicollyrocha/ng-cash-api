@@ -14,7 +14,7 @@ export default function auth(request: Request, response: Response, next: NextFun
     if (!auth) {
       throw new Error('JWT is missing');
     }
-    //Aqui pegamos apenas a variável token, e não utilizamos a primeira variável
+
     const [, token] = auth.split(' ');
 
     const tokenDecoded = verify(token, jwt.secret);

@@ -11,13 +11,13 @@ import { createAccountSchema, createUserSchema, loginUserSchema } from '../schem
 const router = express.Router();
 
 
-// Login user
-//router.post('/login', validateAuthPayload(), loginUserHandler);
 
-// Logout user
+
+
+
 router.get('/logout', deserializeUser, requireUser, logoutHandler);
 
-// Refresh access token
+
 router.get('/refresh', refreshAccessTokenHandler);
 
 export default router;

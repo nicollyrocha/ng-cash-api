@@ -43,7 +43,7 @@ export const signTokens = async (user: Users) => {
     EX: config.get<number>('redisCacheExpiresIn') * 60,
   });
 
-  // 2. Create Access and Refresh tokens
+
   const access_token = signJwt({ sub: user.username }, 'accessTokenPrivateKey', {
     expiresIn: `${config.get<number>('accessTokenExpiresIn')}m`,
   });
@@ -69,7 +69,7 @@ export const refreshAccessTokenHandler = async (
       return next(new AppError(403, message));
     }
 
-    // Validate refresh token
+
     const decoded = verifyJwt<{ sub: string }>(
       refresh_token,
       'refreshTokenPublicKey'
@@ -79,33 +79,33 @@ export const refreshAccessTokenHandler = async (
       return next(new AppError(403, message));
     }
 
-    // Check if user has a valid session
+
     const session = await redisClient.get(decoded.sub);
 
     if (!session) {
       return next(new AppError(403, message));
     }
 
-    // Check if user still exist
+
     const user = await findUserById(JSON.parse(session).id);
 
     if (!user) {
       return next(new AppError(403, message));
     }
 
-    // Sign new access token
+
     const access_token = signJwt({ sub: user.id }, 'accessTokenPrivateKey', {
       expiresIn: `${config.get<number>('accessTokenExpiresIn')}m`,
     });
 
-    // 4. Add Cookies
+
     res.cookie('access_token', access_token, accessTokenCookieOptions);
     res.cookie('logged_in', true, {
       ...accessTokenCookieOptions,
       httpOnly: false,
     });
 
-    // 5. Send response
+
     res.status(200).json({
       status: 'success',
       access_token,

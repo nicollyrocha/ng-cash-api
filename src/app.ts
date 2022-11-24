@@ -22,30 +22,30 @@ import { requireUser } from './middleware/requireUser';
 const numCpus = os.cpus().length;
 AppDataSource.initialize()
   .then(async () => {
-    // VALIDATE ENV
+
     validateEnv();
     const app = express();
-    // TEMPLATE ENGINE
+
     app.set('view engine', 'pug');
     app.set('views', `${__dirname}/views`);
-    // MIDDLEWARE
 
-    // 1. Body parser
+
+
     app.use(express.json({ limit: '10kb' }));
-    // 2. Logger
+
     if (process.env.NODE_ENV === 'development') {
       app.use(morgan('dev'))
     };
-    // 3. Cookie Parser
+
     app.use(cookieParser());
-    // 4. Cors
+
     app.use(
       cors({
         origin: config.get<string>('origin'),
         credentials: true,
       })
     );
-    // ROUTES
+
     app.post('/api/registeraccount', registerAccountHandler);
     app.post('/api/register', registerUserHandler)
     app.post('/api/login', loginUserHandler)
@@ -56,7 +56,7 @@ AppDataSource.initialize()
     app.get('/api/user/:id', auth, getUserById)
     app.use('/api/auth', authRouter);
     app.use('/api/logout', logoutHandler);
-    // HEALTH CHECKER
+
     app.get('/api/healthChecker', async (_, res: Response) => {
 
       res.status(200).json({
@@ -64,11 +64,11 @@ AppDataSource.initialize()
         message: 'Welcome to Node.js, we are happy to see you',
       });
     });
-    // UNHANDLED ROUTE
+
     app.all('*', (req: Request, res: Response, next: NextFunction) => {
       next(new AppError(404, `Route ${req.originalUrl} not found`));
     });
-    // GLOBAL ERROR HANDLER
+
     app.use(
       (error: AppError, req: Request, res: Response, next: NextFunction) => {
         error.status = error.status || 'error';

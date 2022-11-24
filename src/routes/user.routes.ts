@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(deserializeUser, requireUser);
 
-// Get currently logged in user
+
 router.get('/me', getMeHandler);
 
 router.get('/users', getUsers);
